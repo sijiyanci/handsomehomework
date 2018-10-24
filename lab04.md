@@ -8,7 +8,7 @@
 >**那我们该如何表示颜色呢？**  
 &emsp;&emsp;_在现实生活中，我们直接用颜料搭配来表示颜色，同时再赋予一些名词，如“洋红色”“天蓝色”等，来使颜色可以在人类交流中得以表示。_
  <center>   
-<img src=http://img05.tooopen.com/images/20140821/sy_69358945768.jpg width=256 height=256 />
+<img src="http://img05.tooopen.com/images/20140821/sy_69358945768.jpg" width="256" height="256" />
 </center>
 
 >**但在计算机中，我们又该如何表示颜色呢？难道也将颜料配置到计算机中，通过它来表示？**  
