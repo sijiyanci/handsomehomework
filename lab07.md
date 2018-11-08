@@ -51,6 +51,7 @@
 |**event&action**|动态显示&静态显示|
 
 6、
+
 |object name|墙壁|
 |:-|-:|
 |**attrbutes**|Main layer|
