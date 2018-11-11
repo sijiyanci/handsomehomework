@@ -1,7 +1,7 @@
 # ***任务 1：建立一个简单电路***  
 ## （1）建立非门功能(O = A’)验证电路：  
-<img src="./images/非门电路.png" width="250" /> 
-<img src="./images/非门电路2.png" width="260"/>
+<img src="./images/not1.PNG" width="250" /> 
+<img src="./images/not2.png" width="260"/>
 
 ## （2）真值表： 
 
