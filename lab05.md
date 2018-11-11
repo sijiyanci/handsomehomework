@@ -11,7 +11,7 @@
 |0|1|
 
 ##  (3)XOR电路：  
-<img src="./images/xor门.png"/>
+<img src="./images/xor门.PNG"/>
 
 
 # ***任务 2：验证电路等价***  
