@@ -1,7 +1,7 @@
 # ***任务 1：建立一个简单电路***  
 ## （1）建立非门功能(O = A’)验证电路：  
-<img src="images/非门电路.png" width="250" /> 
-<img src="images/非门电路2.png" width="260"/>
+<img src="./images/非门电路.png" width="250" /> 
+<img src="./images/非门电路2.png" width="260"/>
 
 ## （2）真值表： 
 
@@ -11,12 +11,12 @@
 |0|1|
 
 ##  (3)XOR电路：  
-<img src="images/xor门.png"/>
+<img src="./images/xor门.png"/>
 
 
 # ***任务 2：验证电路等价***  
 ## （1）分别建立电路 A（B+C）和 AB+AC 在一个界面上。用 A，B，C 用三个开关控制输入，用两个 LED 表示输出。  
-<img src="images/abc等效电路.png"/>  
+<img src="./images/abc等效电路.png"/>  
 
 ## （2）真值表:
 
@@ -34,12 +34,12 @@
 # ***任务 3：理解存储电路***  
 ## （1）按课件 S-R latch 搭建电路：  
 **存储‘1’：（led3为存储状态）**    
-<img src="images/存储器1.png" width="260"/>
-<img src="images/存储器2.png" width="260"/> 
+<img src="./images/存储器1.png" width="260"/>
+<img src="./images/存储器2.png" width="260"/> 
 
 **存储‘0’：**  
-<img src="images/存储器3.png" width="260"/>
-<img src="images/存储器4.png" width="260"/>
+<img src="./images/存储器3.png" width="260"/>
+<img src="./images/存储器4.png" width="260"/>
 
 ## （2）真值表： 
 
@@ -53,11 +53,11 @@
 
 # ***任务 4：设计全加电路***  
 ## （1） 画出一位的全加电路。  
-<img src="images/1位全加器.png" width="500"/>
+<img src="./images/1位全加器.png" width="500"/>
 
 ## （2）二位全加器：  
-<img src="images/2位全加器.png" width="500"/>  
+<img src="./images/2位全加器.png" width="500"/>  
 
 ## (3)八位全加器:
-<img src="images/八位全加器.png" width="500" alt="128+128"/>
+<img src="./images/八位全加器.png" width="500" alt="128+128"/>
 
