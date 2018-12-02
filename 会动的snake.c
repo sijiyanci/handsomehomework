@@ -9,10 +9,10 @@
 #define SNAKE_FOOD '$'
 #define WALL_CELL '*'
 
-void snakemove(int dy,int dx);								//移动 
-void put_money(void);										//正确产生食物 
-void output(void);											//更新界面 
-void gameover(void);										//结束游戏 
+void snakemove(int dy,int dx);								//绉诲姩 
+void put_money(void);									//姝ｇ‘浜х敓椋熺墿 
+void output(void);									//鏇存柊鐣岄潰 
+void gameover(void);									//缁撴潫娓告垙 
 
 
 char map[12][12]=
@@ -57,8 +57,8 @@ int main(void)
 			default:break;
 		}
  
-		output();							 	//更新界面
-		countobs--;
+		output();							 	//鏇存柊鐣岄潰
+		
 		while((ch=getchar())!='\n')
 			continue;
 	}
@@ -66,9 +66,9 @@ int main(void)
 	
 }
 
-void snakemove(int dy,int dx)
+void snakemove(int dy,int dx)								//绉诲姩
 {
-	int i;														//没吃到，则只移动位置 	
+	int i;													 	
 	map[snakey[0]][snakex[0]]=BLANK_CELL;
 	for(i=0;i<snakelength-1;i++)
 	{
@@ -84,7 +84,7 @@ void snakemove(int dy,int dx)
 	
 }
 
-void output(void)										//更新界面 
+void output(void)										//鏇存柊鐣岄潰 
 {
 	int i,j;
 	for(i=0;i<12;i++)
