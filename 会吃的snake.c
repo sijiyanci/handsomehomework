@@ -9,13 +9,13 @@
 #define SNAKE_FOOD '$'
 #define WALL_CELL '*'
 
-void snakemove(int dy,int dx);								//ÒÆ¶¯ 
-void put_money(void);										//ÕıÈ·²úÉúÊ³Îï 
-void output(void);											//¸üĞÂ½çÃæ 
-void gameover(void);										//½áÊøÓÎÏ· 
-int checkmany(void);										//¼ì²éÊÇ·ñ×²Ç½»òÕß³Ô×Ô¼º 
-int checkone(int x,int y);									//¼ì²éÊÇ·ñ³öÏÖÔÚÉßÉíÉÏ£¨ÓÃÓÚ¼ì²éÊÇ·ñÕıÈ·²úÉúÊ³Îï£¬ÕÏ°­Îï£© 
-void put_obstacles(void);									//ÕıÈ·²úÉúÕÏ°­Îï 
+void snakemove(int dy,int dx);								//ç§»åŠ¨ 
+void put_money(void);										//æ­£ç¡®äº§ç”Ÿé£Ÿç‰© 
+void output(void);											//æ›´æ–°ç•Œé¢ 
+void gameover(void);										//ç»“æŸæ¸¸æˆ 
+int checkmany(void);										//æ£€æŸ¥æ˜¯å¦æ’å¢™æˆ–è€…åƒè‡ªå·± 
+int checkone(int x,int y);									//æ£€æŸ¥æ˜¯å¦å‡ºç°åœ¨è›‡èº«ä¸Šï¼ˆç”¨äºæ£€æŸ¥æ˜¯å¦æ­£ç¡®äº§ç”Ÿé£Ÿç‰©ï¼Œéšœç¢ç‰©ï¼‰ 
+void put_obstacles(void);									//æ­£ç¡®äº§ç”Ÿéšœç¢ç‰© 
 
 char map[12][12]=
 {
@@ -32,11 +32,13 @@ char map[12][12]=
 	"*          *",
 	"************"			
 };
-int snakex[SNAKE_MAX_LENGTH]={1,2,3,4,5};
+int snakex[SNAKE_MAX_LENGTH]={1,2,3,4,5};					//è›‡çš„ä½ç½®
 int snakey[SNAKE_MAX_LENGTH]={1,1,1,1,1};
+
 int snakelength=5;
-int money[2]={12,12}; 
-int obstaclex[3]={9,8,7};
+int money[2]={12,12}; 								//é£Ÿç‰©çš„ä½ç½®
+
+int obstaclex[3]={9,8,7};							//éšœç¢ç‰©çš„ä½ç½®
 int obstacley[3]={9,8,7}; 
 int flagmoney=0; 
 
@@ -48,17 +50,17 @@ int main(void)
 	int ch,countobs=0,i,flagobs=0;
 	while((ch=getchar())!='g')
 	{
-		if(!flagmoney)			//ÕıÈ·²úÉúÊ³Îï 
+		if(!flagmoney)			//æ­£ç¡®äº§ç”Ÿé£Ÿç‰© 
 		{
 			put_money();
 			flagmoney=1;
 		}	
-		if(!countobs)			//ÕıÈ·²úÉúÕÏ°­Îï 
+		if(!countobs)			//æ­£ç¡®äº§ç”Ÿéšœç¢ç‰© 
 		{	
 			put_obstacles();
 			countobs=3;	
 		}				
-		switch(ch)
+		switch(ch)				//ç§»åŠ¨
 		{
 			case 'a':snakemove(0,-1);	//left
 				break;
@@ -70,17 +72,17 @@ int main(void)
 				break;
 			default:break;
 		}
-		if(checkmany())							//ÊÇ·ñ×²ÉÏ×ÔÉí»òÇ½±Ú 
+		if(checkmany())							//æ˜¯å¦æ’ä¸Šè‡ªèº«æˆ–å¢™å£ 
 			break;
-		for(i=0;i<3;i++)																//ÊÇ·ñ×²ÉÏÕÏ°­Îï 
+		for(i=0;i<3;i++)																//æ˜¯å¦æ’ä¸Šéšœç¢ç‰© 
 			if(obstaclex[i]==snakex[snakelength-1]&&obstacley[i]==snakey[snakelength-1])
 			{
 				flagobs=1;
 				break;
 			}
-		if(flagobs)								//Èç¹û×²ÉÏÕÏ°­Îï£¬½áÊøÓÎÏ· 
+		if(flagobs)								//å¦‚æœæ’ä¸Šéšœç¢ç‰©ï¼Œç»“æŸæ¸¸æˆ 
 			break; 
-		output();							 	//¸üĞÂ½çÃæ
+		output();							 	//æ›´æ–°ç•Œé¢
 		countobs--;
 		while((ch=getchar())!='\n')
 			continue;
@@ -92,7 +94,7 @@ int main(void)
 void snakemove(int dy,int dx)
 {
 	int i;
-	if(snakex[snakelength-1]+dx==money[0]&&snakey[snakelength-1]+dy==money[1])			//Èô³Ôµ½Ê³Îï£¬Ôò±ä³¤ 
+	if(snakex[snakelength-1]+dx==money[0]&&snakey[snakelength-1]+dy==money[1])			//è‹¥åƒåˆ°é£Ÿç‰©ï¼Œåˆ™å˜é•¿ 
 	{
 		snakex[snakelength]=snakex[snakelength-1]+dx;
 		snakey[snakelength]=snakey[snakelength-1]+dy;
@@ -101,7 +103,7 @@ void snakemove(int dy,int dx)
 		map[snakey[0]][snakex[0]]=SNAKE_BODY;
 		flagmoney=0;
 	}
-	else														//Ã»³Ôµ½£¬ÔòÖ»ÒÆ¶¯Î»ÖÃ 
+	else												//æ²¡åƒåˆ°ï¼Œåˆ™åªç§»åŠ¨ä½ç½® 
 	{
 		map[snakey[0]][snakex[0]]=BLANK_CELL;
 		for(i=0;i<snakelength-1;i++)
@@ -118,7 +120,7 @@ void snakemove(int dy,int dx)
 	
 }
 
-void output(void)										//¸üĞÂ½çÃæ 
+void output(void)										//æ›´æ–°ç•Œé¢ 
 {
 	int i,j;
 	for(i=0;i<12;i++)
@@ -134,15 +136,15 @@ void gameover(void)
 	printf("Game Over!!!\n");
 }
 
-int checkmany(void)				//ÅĞ¶ÏÊÇ·ñ×²ÉÏÇ½»ò×ÔÉí 
+int checkmany(void)				//åˆ¤æ–­æ˜¯å¦æ’ä¸Šå¢™æˆ–è‡ªèº« 
 {
 	int i;
-	for(i=0;i<snakelength-1;i++)													//ÊÇ·ñ×²µ½×Ô¼º 
+	for(i=0;i<snakelength-1;i++)													//æ˜¯å¦æ’åˆ°è‡ªå·± 
 	{
 		if((snakex[snakelength-1]==snakex[i])&&(snakey[snakelength-1]==snakey[i]))
 			return 1;
 	}
-	if(snakex[snakelength-1]<1||snakex[snakelength-1]>10||snakey[snakelength-1]<1||snakey[snakelength-1]>10)	//ÊÇ·ñ×²µ½Ç½ 
+	if(snakex[snakelength-1]<1||snakex[snakelength-1]>10||snakey[snakelength-1]<1||snakey[snakelength-1]>10)	//æ˜¯å¦æ’åˆ°å¢™ 
 		return 1;
 	return 0;
 }
@@ -152,7 +154,7 @@ void put_money(void)
 	
 	map[money[1]][money[0]]=BLANK_CELL;
 	
-	do														//Èç¹ûÊ³Îï³öÏÖÔÚÉßÉíÉÏ£¬ÖØÖÃ 
+	do											//å¦‚æœé£Ÿç‰©å‡ºç°åœ¨è›‡èº«ä¸Šï¼Œé‡ç½® 
 	{
 		money[0]=(money[0]+(unsigned int)time(0)%11)%11;
 		money[1]=(money[0]+(unsigned int)time(0)%11)%11;
@@ -163,7 +165,7 @@ void put_money(void)
 	map[money[1]][money[0]]=SNAKE_FOOD;
 }
 
-int checkone(int x,int y)									//¼ì²éÊÇ·ñ³öÏÖÔÚÉßÉíÉÏ 
+int checkone(int x,int y)									//æ£€æŸ¥æ˜¯å¦å‡ºç°åœ¨è›‡èº«ä¸Š 
 {
 	int i;
 	for(i=0;i<snakelength;i++)
@@ -177,10 +179,10 @@ int checkone(int x,int y)									//¼ì²éÊÇ·ñ³öÏÖÔÚÉßÉíÉÏ
 void put_obstacles(void)
 {
 	int i;
-	for(i=0;i<3;i++)										//°ÑÖ®Ç°µÄÕÏ°­ÎïÈ¥³ı 
+	for(i=0;i<3;i++)								//æŠŠä¹‹å‰çš„éšœç¢ç‰©å»é™¤ 
 		map[obstacley[i]][obstaclex[i]]=BLANK_CELL;
 	
-	for(i=0;i<3;i++)										//Éú³ÉÈı¸öÕÏ°­Îï£¬Èô³öÏÖÔÚÉßÉíÉÏ£¬ÔòÖØÖÃ 
+	for(i=0;i<3;i++)								//ç”Ÿæˆä¸‰ä¸ªéšœç¢ç‰©ï¼Œè‹¥å‡ºç°åœ¨è›‡èº«ä¸Šï¼Œåˆ™é‡ç½® 
 	{
 		do														
 		{
