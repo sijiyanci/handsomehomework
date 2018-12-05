@@ -9,13 +9,13 @@
 #define SNAKE_FOOD '$'
 #define WALL_CELL '*'
 
-void snakemove(int dy,int dx);								//移动 
-void put_money(void);										//正确产生食物 
-void output(void);											//更新界面 
-void gameover(void);										//结束游戏 
-int checkmany(void);										//检查是否撞墙或者吃自己 
-int checkone(int x,int y);									//检查是否出现在蛇身上（用于检查是否正确产生食物，障碍物） 
-void put_obstacles(void);									//正确产生障碍物 
+void snakemove(int dy,int dx);							//移动 
+void put_money(void);								//正确产生食物 
+void output(void);								//更新界面 
+void gameover(void);								//结束游戏 
+int checkmany(void);								//检查是否撞墙或者吃自己 
+int checkone(int x,int y);							//检查是否出现在蛇身上（用于检查是否正确产生食物，障碍物） 
+void put_obstacles(void);							//正确产生障碍物 
 
 char map[12][12]=
 {
@@ -74,7 +74,7 @@ int main(void)
 		}
 		if(checkmany())							//是否撞上自身或墙壁 
 			break;
-		for(i=0;i<3;i++)																//是否撞上障碍物 
+		for(i=0;i<3;i++)							//是否撞上障碍物 
 			if(obstaclex[i]==snakex[snakelength-1]&&obstacley[i]==snakey[snakelength-1])
 			{
 				flagobs=1;
@@ -94,7 +94,7 @@ int main(void)
 void snakemove(int dy,int dx)
 {
 	int i;
-	if(snakex[snakelength-1]+dx==money[0]&&snakey[snakelength-1]+dy==money[1])			//若吃到食物，则变长 
+	if(snakex[snakelength-1]+dx==money[0]&&snakey[snakelength-1]+dy==money[1])	//若吃到食物，则变长 
 	{
 		snakex[snakelength]=snakex[snakelength-1]+dx;
 		snakey[snakelength]=snakey[snakelength-1]+dy;
@@ -103,7 +103,7 @@ void snakemove(int dy,int dx)
 		map[snakey[0]][snakex[0]]=SNAKE_BODY;
 		flagmoney=0;
 	}
-	else												//没吃到，则只移动位置 
+	else										//没吃到，则只移动位置 
 	{
 		map[snakey[0]][snakex[0]]=BLANK_CELL;
 		for(i=0;i<snakelength-1;i++)
@@ -139,12 +139,12 @@ void gameover(void)
 int checkmany(void)				//判断是否撞上墙或自身 
 {
 	int i;
-	for(i=0;i<snakelength-1;i++)													//是否撞到自己 
+	for(i=0;i<snakelength-1;i++)									//是否撞到自己 
 	{
 		if((snakex[snakelength-1]==snakex[i])&&(snakey[snakelength-1]==snakey[i]))
 			return 1;
 	}
-	if(snakex[snakelength-1]<1||snakex[snakelength-1]>10||snakey[snakelength-1]<1||snakey[snakelength-1]>10)	//是否撞到墙 
+	if(snakex[snakelength-1]<1||snakex[snakelength-1]>10||snakey[snakelength-1]<1||snakey[snakelength-1]>10)  //是否撞到墙 
 		return 1;
 	return 0;
 }
